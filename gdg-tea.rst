@@ -160,7 +160,8 @@ The Elm Architecture
 Данные сериализуются
 ====================
 
-.. dot::
+.. dot:: 
+    :width: 600 
 
     digraph {
         nodesep = 1.5;
