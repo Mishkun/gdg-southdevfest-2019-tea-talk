@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Rubik:300&display=swap');
+
+body {
+  font-size: 200%;
+  font-family: Rubik;
+  font-weight: 300;
+  color: #333;
+}
+
+h1 {
+  margin-bottom: 0.35em;
+  font-family: Montserrat;
+  line-height: 1;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 120%;
+  font-weight: 300;
+  margin: 0
+}
+
+h3 {
+  font-size: 100%;
+  font-weight: 300;
+  margin: 0
+}
+
+.step.overflow {
+  width: auto;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+li {
+  line-height: 1.5;
+}
+
+.big-title h1 {
+  color: #DB3727;
+  font-weight: 700;
+}
+
+.big-subtitle h2 {
+  margin-bottom: 0.35em;
+  font-family: Montserrat;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.big-subtitle h3 {
+  font-family: Montserrat;
+  font-size: 110%;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.image-center>img {
+  display: block;
+  margin: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title-center>h1,
+.title-center>h2,
+.title-center>h3 {
+  text-align: center
+}
