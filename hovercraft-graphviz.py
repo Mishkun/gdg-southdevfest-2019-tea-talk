@@ -12,6 +12,10 @@ class Dot(Directive):
     optional_arguments = 0
     has_content = True
     final_argument_whitespace = True
+    option_spec = {
+        'height': directives.unchanged,
+        'width': directives.unchanged
+    }
 
     '''dot image generator'''
     def run(self):
@@ -24,7 +28,10 @@ class Dot(Directive):
         if ret:
             return [nodes.error('some error occured')]
         else:
-            return [nodes.raw('', img[img.find("<svg"):], format='html')]
+            image = img[img.find("viewBox"):]
+            height = self.options.get("height", "100%")
+            width = self.options.get("width", "100%")
+            return [nodes.raw('', f"<svg class=\"dot\" height=\"{height}\" width=\"{width}\" {image}", format='html')]
 
 directives.register_directive('dot', Dot)
 
