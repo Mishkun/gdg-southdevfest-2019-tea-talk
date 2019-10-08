@@ -35,6 +35,12 @@ p {
   margin-bottom: 0.5em;
 }
 
+.dot {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 li {
   line-height: 1.5;
 }
