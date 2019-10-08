@@ -76,3 +76,17 @@ li {
 .title-center>h3 {
   text-align: center
 }
+
+
+.footer {
+  position: absolute;
+  top: 96%;
+  right: 2%;
+  font-size: 50%;
+}
+
+
+.footer img {
+  vertical-align: middle;
+  margin-left: 20px
+}

@@ -6,7 +6,11 @@ It is meant to be viewed through the `Hovercraft!`_ slides engine
 .. _Hovercraft!:  https://github.com/regebro/hovercraft>
 
 .. footer::
-    "TEA для Android приложений", @themishkun, Southdevfest, 2019
+    
+    "TEA для Android приложений", @themishkun, Southdevfest, 2019 |devfest| 
+
+.. |devfest| image:: south.png
+    :height: 30
 
 :css: gdg-tea.css
 
