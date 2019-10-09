@@ -14,16 +14,14 @@ h1 {
   font-weight: 700;
 }
 
-h2 {
+h2, .h2, .start-h2 h1 {
   font-size: 120%;
   font-weight: 300;
-  margin: 0
 }
 
-h3 {
+h3, .h3 {
   font-size: 100%;
   font-weight: 300;
-  margin: 0
 }
 
 .step.overflow {
@@ -50,14 +48,14 @@ li {
   font-weight: 700;
 }
 
-.big-subtitle h2 {
+.big-subtitle h2, .big-subtitle.h2, .start-h2.big-subtitle h1 {
   margin-bottom: 0.35em;
   font-family: Montserrat;
   line-height: 1;
   font-weight: 700;
 }
 
-.big-subtitle h3, .big-subtitle .h3 {
+.big-subtitle h3, .big-subtitle.h3 {
   font-family: Montserrat;
   font-size: 110%;
   font-weight: 500;
