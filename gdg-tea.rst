@@ -12,11 +12,10 @@ It is meant to be viewed through the `Hovercraft!`_ slides engine
 .. |devfest| image:: south.png
     :height: 30
 
+:data-transition-duration: 500
 :css: gdg-tea.css
 
 ----
-
-:class: title-slide
 
 The Elm Architecture 
 ====================
@@ -63,11 +62,13 @@ The Elm Architecture
 
 ----
 
-:class: big-idea
+:class: big-title
+:class: big-subtitle
 
 ЧТО?
 ====
 Но в этом же вся суть!
+----------------------
 
 .. note:: 
 
@@ -262,11 +263,17 @@ The Elm Architecture
 
 ----
 
-**Основной принцип функционального дизайна**
+:class: big-title
+:class: big-subtitle
 
-1. **Данные**
-2. *Вычисления*
+Основной принцип функционального дизайна
+
+1. Данные
+=========
+2. Вычисления
+---------------
 3. Действия
+...........
 
 .. note::
 
