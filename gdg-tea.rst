@@ -432,31 +432,24 @@ TEA
         rankdir = "LR"
         edge[arrowhead=vee arrowsize=.5]
         node[shape=box]
-        nodesep=0.3
+        nodesep=0.1
         UI -> Reducer [label="Msg"]
         Reducer -> UI [label="State' \nCmd"]
         Reducer [shape=hexagon]
         Cmd [label="Command\nInterpreter"]
-        Cmd2 [label="Command\nInterpreter"]
-        {rank=same Cmd  Cmd2}
-        {rank=same CmdInvis  CmdInvis2}
-        {rank=same ReducerInvis  ReducerInvis2}
         Cmd -> API
-        Cmd2 -> Service
-        CmdInvis [style=invis  shape=point]
-        CmdInvis2 [style=invis shape=point]
-        ReducerInvis [style=invis shape=point]
-        ReducerInvis2 [style=invis shape=point]
-        ReducerInvis -> Reducer [style=invis]
-        Reducer -> ReducerInvis2 [style=invis]
-        ReducerInvis -> ReducerInvis2 [style=invis]
-        ReducerInvis -> CmdInvis2 [label="Cmd"]
-        CmdInvis2 -> CmdInvis [style=invis]
-        CmdInvis -> ReducerInvis2 [label="Msg"]
-        Cmd2 -> CmdInvis2 [style = invis]
-        CmdInvis -> Cmd [style = invis]
+        Reducer -> Cmd [label="Cmd"]
+        Cmd -> Reducer [label="Msg"]
         API [shape=cylinder style=dashed]
+        Cmd2 [label="Command\nInterpreter" style=dashed]
+        Cmd3 [label="Command\nInterpreter" style=dashed]
+        Cmd2 -> Service
+        Cmd3 -> Service2
+        Cmd -> Cmd2:s [style=invis]
+        Cmd2 -> Cmd3:s [style=invis]
+        {rank=same Cmd  Cmd2 Cmd3 }
         Service [shape=cylinder style=dashed]
+        Service2 [shape=cylinder style=dashed]
     }
 
 ----
