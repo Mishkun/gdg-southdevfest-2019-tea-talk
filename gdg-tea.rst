@@ -370,19 +370,17 @@ Model-View-Intent
     digraph {
         rankdir = "LR"
         UI [shape=component]
-        Logic [shape=component]
         Reducer [shape=component]
         API [shape=cylinder style=dashed]
-        { rank=same Intent Reducer State Effect }
-        { rank=same Logic Update}
-        { rank=1 UI }
-        UI -> Intent
+        Update [shape=plain]
+        Logic [shape=component]
+        { rank=same Reducer Logic Update }
+        Logic -> Update [style=none arrowhead=none]
         Update -> Reducer
-        Intent -> Logic
+        Reducer -> UI [label="State'"] 
+        Logic -> UI [label="Effect"]
+        UI -> Logic [label="Intent"]
         Logic -> API
-        Logic -> Update
-        Logic -> Effect -> UI
-        Reducer -> State -> UI
     }
 
 ----
