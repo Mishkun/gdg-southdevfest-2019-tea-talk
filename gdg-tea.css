@@ -7,6 +7,14 @@ body {
   color: #333;
 }
 
+text {
+  font-family: Rubik;
+}
+
+.edge text {
+  font-style: italic
+}
+
 h1 {
   margin-bottom: 0.35em;
   font-family: Montserrat;

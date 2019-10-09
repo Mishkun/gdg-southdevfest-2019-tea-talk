@@ -174,7 +174,7 @@ The Elm Architecture
         Data2 [label="Data'"];
         subgraph cluster_0 {
             label = "Хранилище"
-            JSON;
+            JSON [shape=cylinder];
         }
         Data1 -> JSON
         JSON -> Data2
@@ -237,19 +237,18 @@ The Elm Architecture
     :width: 100
 
 .. dot::
-    :height: 100
+    :height: 200
 
     digraph {
-        t1 [label="A"];
-        r1 [label="B"];
-        r2 [label="B"];
-        q1 [label="C"];
-        { rank=same; t1; r1; q1; r2; }
-        graph [splines=ortho];
+        nodesep=1
+        edge[arrowhead=vee arrowsize=.5]
+        r1 [label="B" shape="plain"];
+        t1 [label="A" shape="plain"];
+        q1 [label="C" shape="plain"];
+        { rank=same; t1;  q1; }
         t1 -> r1 [label="f"];
-        r1 -> r2 [style=invis];
-        r2 -> q1 [label="g"];
-        t1 -> q1 [style=dashed];
+        r1 -> q1 [label="g"];
+        t1 -> q1 [label="h" style=dashed];
     }
 
 ----
@@ -343,43 +342,45 @@ Model-View-Intent
 
 .. code:: kotlin
 
+    // Logic.kt
+
     fun accept(state: State, msg: Msg) = when(msg) {
         is OnOfferClick -> if (!state.isLoading) { 
-            api.getOffer(msg.offerId) // Действие
-                .startWith { SetLoading }
-                .map {
-                    UpdateWithData(it)
-                }
+                api.getOffer(msg.offerId) // Действие
+                   .startWith { SetLoading }
+                   .map { UpdateWithData(it) }
             } else {
                 Observable.just(SetLoading)
             }
     }
 
-    fun state(state: State, update: Update) = when(update) { // Вычисления
+    // Reducer.kt
+
+    fun state(state: State, update: Update): State = when(update) { // Вычисления
         is UpdateWithData -> state.copy(data = update.data, loading = false)
         is SetLoading -> state.copy(loading = true)
     }
 
 ----
 
-Как-то так...
-=============
+MVI
+===
 
 .. dot::
 
     digraph {
         rankdir = "LR"
-        UI [shape=component]
-        Reducer [shape=component]
-        API [shape=cylinder style=dashed]
+        edge[arrowhead=vee arrowsize=.5]
+        node[shape=box]
+        UI -> Logic [label="Intent"]
         Update [shape=plain]
-        Logic [shape=component]
         { rank=same Reducer Logic Update }
         Logic -> Update [style=none arrowhead=none]
         Update -> Reducer
         Reducer -> UI [label="State'"] 
+        Reducer -> Reducer:s [label="State"]
         Logic -> UI [label="Effect"]
-        UI -> Logic [label="Intent"]
+        API [shape=cylinder style=dashed]
         Logic -> API
     }
 
@@ -392,10 +393,12 @@ The Elm-ish Architecture
 
 .. code:: kotlin
 
-    fun update(state: State, msg: Msg) = when(msg) { // Вычисления
+    // Reducer.kt
+
+    fun update(state: State, msg: Msg): Pair<State, Cmd?> = when(msg) {
         is OnOfferClick -> {
-            val eff = if (!state.loading) Load(msg.offerId) else null
-            state.copy(loading = true) to eff
+            val cmd = if (!state.loading) Load(msg.offerId) else null
+            state.copy(loading = true) to cmd
         }
         is NewDataArrived -> state.copy(data = update.data, loading = false) to null
     }
@@ -404,14 +407,56 @@ The Elm-ish Architecture
 
 .. code:: kotlin
 
-    // Отдельная сущность
-    class EffectHandler(api: Api) {
-        fun interpret(eff: Effect) = when(eff) {
+    // EffectHandler.kt
+
+    class CommandInterpreter(api: Api) {
+        fun interpret(
+            cmd: Command, 
+            listener: (Msg) -> Unit
+        ) = when(cmd) {
             is Load -> {
-                val model = api.getOffer(eff.offerId).async()
-                return NewDataArrived(model)
+                val model = api.getOffer(eff.offerId)
+                listener(NewDataArrived(model))
             }
         }
+    }
+
+----
+
+TEA
+===
+
+.. dot::
+
+    digraph {
+        rankdir = "LR"
+        edge[arrowhead=vee arrowsize=.5]
+        node[shape=box]
+        nodesep=0.3
+        UI -> Reducer [label="Msg"]
+        Reducer -> UI [label="State' \nCmd"]
+        Reducer [shape=hexagon]
+        Cmd [label="Command\nInterpreter"]
+        Cmd2 [label="Command\nInterpreter"]
+        {rank=same Cmd  Cmd2}
+        {rank=same CmdInvis  CmdInvis2}
+        {rank=same ReducerInvis  ReducerInvis2}
+        Cmd -> API
+        Cmd2 -> Service
+        CmdInvis [style=invis  shape=point]
+        CmdInvis2 [style=invis shape=point]
+        ReducerInvis [style=invis shape=point]
+        ReducerInvis2 [style=invis shape=point]
+        ReducerInvis -> Reducer [style=invis]
+        Reducer -> ReducerInvis2 [style=invis]
+        ReducerInvis -> ReducerInvis2 [style=invis]
+        ReducerInvis -> CmdInvis2 [label="Cmd"]
+        CmdInvis2 -> CmdInvis [style=invis]
+        CmdInvis -> ReducerInvis2 [label="Msg"]
+        Cmd2 -> CmdInvis2 [style = invis]
+        CmdInvis -> Cmd [style = invis]
+        API [shape=cylinder style=dashed]
+        Service [shape=cylinder style=dashed]
     }
 
 ----
