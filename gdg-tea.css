@@ -17,17 +17,21 @@ text {
 
 h1 {
   margin-bottom: 0.35em;
+  margin-top: 0.35em;
   font-family: Montserrat;
   line-height: 1;
   font-weight: 700;
 }
 
-h2, .h2, .start-h2 h1 {
+h2,
+.h2,
+.start-h2 h1 {
   font-size: 120%;
   font-weight: 300;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 100%;
   font-weight: 300;
 }
@@ -56,14 +60,17 @@ li {
   font-weight: 700;
 }
 
-.big-subtitle h2, .big-subtitle.h2, .start-h2.big-subtitle h1 {
+.big-subtitle h2,
+.big-subtitle.h2,
+.start-h2.big-subtitle h1 {
   margin-bottom: 0.35em;
   font-family: Montserrat;
   line-height: 1;
   font-weight: 700;
 }
 
-.big-subtitle h3, .big-subtitle.h3 {
+.big-subtitle h3,
+.big-subtitle.h3 {
   font-family: Montserrat;
   font-size: 110%;
   font-weight: 500;
@@ -83,6 +90,14 @@ li {
   text-align: center
 }
 
+div.flex {
+  display: flex;
+}
+
+div.flex-align-center {
+  display: flex;
+  align-items: center
+}
 
 .footer {
   position: absolute;
@@ -91,6 +106,13 @@ li {
   font-size: 50%;
 }
 
+div.margin {
+  margin: 0.35em;
+}
+
+div.flex-direction {
+  flex-direction: column
+}
 
 .footer img {
   vertical-align: middle;

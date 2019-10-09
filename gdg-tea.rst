@@ -454,10 +454,18 @@ TEA
 
 ----
 
-Профит
-======
 
-Тотальный контроль над эффектами и их исполнением
+:class: flex
+
+.. raw:: html
+    
+    <div>
+        <h1>Профит</h1>
+        <p>Тотальный контроль над эффектами и их исполнением</p>
+    </div>
+
+.. image:: control.jpg
+    :height: 400
 
 .. note::
 
@@ -472,13 +480,33 @@ TEA
 
 ----
 
-The Elm Architecture
-====================
+:class: flex
+:class: big-title
+:class: big-subtitle
 
-Паттерн для создания интерактивных программ. Часть экосистемы языка Elm.
+.. raw:: html
 
-И теперь этот паттерн ваш!
---------------------------
+    <div>
+        <h1>1. Данные</h1>
+        <h2>2. Вычисления</h2>
+        <h3>3. Действия</h3>
+    </div>
+
+.. container:: margin flex-align-center flex-direction
+
+    @Mishkun
+
+    .. image:: github_qr.png
+        :height: 200
+
+
+.. container:: margin flex-align-center flex-direction
+
+    @lambda61
+
+    .. image:: lambda_tg_qr.png
+        :height: 200
+
 
 .. note::
 
