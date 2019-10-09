@@ -362,6 +362,31 @@ Model-View-Intent
 
 ----
 
+Как-то так...
+=============
+
+.. dot::
+
+    digraph {
+        rankdir = "LR"
+        UI [shape=component]
+        Logic [shape=component]
+        Reducer [shape=component]
+        API [shape=cylinder style=dashed]
+        { rank=same Intent Reducer State Effect }
+        { rank=same Logic Update}
+        { rank=1 UI }
+        UI -> Intent
+        Update -> Reducer
+        Intent -> Logic
+        Logic -> API
+        Logic -> Update
+        Logic -> Effect -> UI
+        Reducer -> State -> UI
+    }
+
+----
+
 :class: overflow
 
 The Elm-ish Architecture
