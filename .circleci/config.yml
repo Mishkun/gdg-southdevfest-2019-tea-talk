@@ -1,0 +1,21 @@
+orbs:
+  gh-pages: sugarshin/gh-pages@x.y.z
+version: 2.1
+jobs:
+  build_slides:
+    docker:
+      - image: python:3.6
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: pip install -r requirements.txt
+      - run:
+          name: Build slides
+          command: python hovercraft-graphviz.py gdg-tea.rst build
+    
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build_slides
