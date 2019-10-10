@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,700|Rubik:300&display=swap');
+
+body {
+  font-size: 200%;
+  font-family: Rubik;
+  font-weight: 300;
+  color: #333;
+}
+
+text {
+  font-family: Rubik;
+}
+
+.edge text {
+  font-style: italic
+}
+
+h1 {
+  margin-bottom: 0.35em;
+  margin-top: 0.35em;
+  font-family: Montserrat;
+  line-height: 1;
+  font-weight: 700;
+}
+
+h2,
+.h2,
+.start-h2 h1 {
+  font-size: 120%;
+  font-weight: 300;
+}
+
+h3,
+.h3 {
+  font-size: 100%;
+  font-weight: 300;
+}
+
+.step.overflow {
+  width: auto;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.dot {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+  line-height: 1.5;
+}
+
+.big-title h1 {
+  color: #DB3727;
+  font-weight: 700;
+}
+
+.big-subtitle h2,
+.big-subtitle.h2,
+.start-h2.big-subtitle h1 {
+  margin-bottom: 0.35em;
+  font-family: Montserrat;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.big-subtitle h3,
+.big-subtitle.h3 {
+  font-family: Montserrat;
+  font-size: 110%;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.image-center>img {
+  display: block;
+  margin: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title-center>h1,
+.title-center>h2,
+.title-center>h3 {
+  text-align: center
+}
+
+div.flex {
+  display: flex;
+}
+
+div.flex-align-center {
+  display: flex;
+  align-items: center
+}
+
+.footer {
+  position: absolute;
+  top: 96%;
+  right: 2%;
+  font-size: 50%;
+}
+
+.restricted-width {
+  width: 500px
+}
+
+img.floating {
+	animation: float 11s ease infinite;
+}
+
+@keyframes float {
+	0%, 50%, 100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+    transform: rotate(0turn)
+  }
+  15%, 65% {
+    transform: rotate(0.01turn)
+  }
+  35%, 85% {
+    transform: rotate(-0.01turn)
+  }
+	25%, 75% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+}
+
+div.margin {
+  margin: 0.35em;
+}
+
+div.flex-direction {
+  flex-direction: column
+}
+
+.footer img {
+  vertical-align: middle;
+  margin-left: 20px
+}
