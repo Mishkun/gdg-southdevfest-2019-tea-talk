@@ -110,6 +110,28 @@ div.flex-align-center {
   width: 500px
 }
 
+img.floating {
+	animation: float 11s ease infinite;
+}
+
+@keyframes float {
+	0%, 50%, 100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+    transform: rotate(0turn)
+  }
+  15%, 65% {
+    transform: rotate(0.01turn)
+  }
+  35%, 85% {
+    transform: rotate(-0.01turn)
+  }
+	25%, 75% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+}
+
 div.margin {
   margin: 0.35em;
 }

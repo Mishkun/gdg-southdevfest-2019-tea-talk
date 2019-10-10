@@ -327,6 +327,10 @@ The Elm Architecture
 :class: big-title
 :class: big-subtitle
 
+:data-x: positions_last_slide+1600
+:data-y: r0
+:data-scale: 1
+
 Основной принцип функционального дизайна
 
 1. Данные
@@ -344,6 +348,9 @@ The Elm Architecture
 
 ----
 
+:data-x: r0
+:data-y: r-1600
+:data-rotate: -90
 :class: overflow
 
 Model-View-Presenter
@@ -368,6 +375,8 @@ Model-View-Presenter
     презентера требует десятков моков в тестах
 
 ----
+
+:id: MVI
 
 :class: overflow
 
@@ -397,6 +406,9 @@ Model-View-Intent
 
 ----
 
+:data-x: r1000
+:data-y: r0
+
 MVI
 ===
 
@@ -422,6 +434,9 @@ MVI
 
 :class: overflow
 
+:data-rotate: 0
+:data-x: r1600
+
 The Elm-ish Architecture
 ========================
 
@@ -439,15 +454,17 @@ The Elm-ish Architecture
 
 ----
 
+:data-x: r0
+:data-y: r1000
+
+:class: overflow
+
 .. code:: kotlin
 
     // EffectHandler.kt
 
     class CommandInterpreter(api: Api) {
-        fun interpret(
-            cmd: Command, 
-            listener: (Msg) -> Unit
-        ) = when(cmd) {
+        fun interpret(cmd: Command, listener: (Msg) -> Unit) = when(cmd) {
             is Load -> {
                 val model = api.getOffer(eff.offerId)
                 listener(NewDataArrived(model))
@@ -456,6 +473,8 @@ The Elm-ish Architecture
     }
 
 ----
+
+:data-y: r1000
 
 TEA
 ===
@@ -488,6 +507,9 @@ TEA
 
 ----
 
+:data-scale: 3
+:data-y: r2000
+:data-rotate-x: -90
 
 :class: flex
 
@@ -498,8 +520,10 @@ TEA
         <p>Тотальный контроль над эффектами и их исполнением</p>
     </div>
 
-.. image:: control.jpg
-    :height: 400
+.. class:: floating
+
+    .. image:: control.jpg
+        :height: 400
 
 .. note::
 
@@ -513,6 +537,9 @@ TEA
     Вы можете одной строчкой встроить логирование всего происходящего для того чтобы выловить баг.
 
 ----
+
+:data-y: r0
+:data-x: r3600
 
 :class: flex
 :class: big-title
