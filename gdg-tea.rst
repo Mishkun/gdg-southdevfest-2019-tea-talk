@@ -65,6 +65,11 @@ The Elm Architecture
 :class: big-title
 :class: big-subtitle
 
+
+:data-scale: 5
+:data-rotate: 0
+:data-x: r3000
+
 ЧТО?
 ====
 Но в этом же вся суть!
@@ -79,6 +84,11 @@ The Elm Architecture
     закрывает как "не будет исправлено", потому что код прекрасен сам по себе и делать ничего полезного ему не нужно.
 
 ----
+
+
+:data-scale: 1
+:data-rotate: 0
+:data-x: r5000
 
 :class: overflow
 
@@ -96,6 +106,8 @@ The Elm Architecture
     книг по фп в год!
     
 ----
+
+:data-x: r1600
 
 ФП на самом деле уже здесь
 ==========================
