@@ -106,6 +106,10 @@ div.flex-align-center {
   font-size: 50%;
 }
 
+.restricted-width {
+  width: 500px
+}
+
 div.margin {
   margin: 0.35em;
 }

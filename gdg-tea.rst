@@ -130,14 +130,12 @@ The Elm Architecture
 
 ----
 
+:id: positions_last_slide
+
 Функциональный стиль
 ====================
 
 Стиль построения программ, в котором код разделяют на три категории
-
-1. Данные
-2. Вычисления
-3. Действия
 
 .. note::
 
@@ -154,6 +152,12 @@ The Elm Architecture
     Давайте посмотрим на эти три категории внимательнее
 
 ----
+
+:class: restricted-width
+
+:data-x: positions_last_slide-300
+:data-y: positions_last_slide+200
+:data-scale: 0.5
 
 Данные
 ======
@@ -172,6 +176,9 @@ The Elm Architecture
     так и цвет кнопки, который вы передаёте в метод отрисовки GUI фреймворка
 
 ----
+
+:data-x: positions_last_slide-600
+:data-y: r1000
 
 Данные сериализуются
 ====================
@@ -224,12 +231,19 @@ The Elm Architecture
 
 ----
 
+:class: restricted-width
+
+:data-x: positions_last_slide+0
+:data-y: positions_last_slide+200
+
 Вычисления
 ==========
 
-Операции, результат которых содержится только в *выходном* значении и зависит только от *входных* данных
+Чистые функции без обозримых сайд-эффектов
 
 ----
+
+:data-y: r1000
 
 Вычисления самостоятельны
 =========================
@@ -265,12 +279,20 @@ The Elm Architecture
 
 ----
 
+:class: restricted-width
+
+:data-x: positions_last_slide+300
+:data-y: positions_last_slide+200
+
 Действия
 ========
 
 Вычисления, которые зависят от времени
 
 ----
+
+:data-y: r1000
+:data-x: positions_last_slide+600
 
 .. image:: boom.png
     :width: 300
