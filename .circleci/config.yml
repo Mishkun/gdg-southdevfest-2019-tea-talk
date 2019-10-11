@@ -16,6 +16,9 @@ jobs:
       - run:
           name: Build slides
           command: python hovercraft-graphviz.py gdg-tea.rst build
+      - run:
+          name: Disable Jekyll
+          command: touch build/.nojekyll
       - persist_to_workspace:
           root: .
           paths:
